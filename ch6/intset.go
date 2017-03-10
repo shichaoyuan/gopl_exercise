@@ -72,8 +72,20 @@ func (s *IntSet) String() string {
 
 //!-string
 
+func bitCount(n uint64) int {
+	var c int
+	for c = 0; n != 0; c++ {
+		n &= (n - 1)
+	}
+	return c
+}
+
 func (s *IntSet) Len() int {
-	return len(s.words)
+	var c int = 0
+	for _, word := range s.words {
+		c += bitCount(word)
+	}
+	return c
 }
 
 func (s *IntSet) Remove(x int) {

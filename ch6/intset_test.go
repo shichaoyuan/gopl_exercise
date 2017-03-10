@@ -56,7 +56,10 @@ func Test_Len(t *testing.T) {
 	var x IntSet
 	x.Add(1)
 	x.Add(64)
+	x.Add(13)
+	x.Add(32)
 
+	fmt.Println("Test_Len")
 	fmt.Println(x.Len())
 
 }
